@@ -6,7 +6,7 @@ Run a Polis masternode with docker-compose.
 - It creates your polis.conf
 
 ## What it does not
-- Set a firewall on your machine
+- Set a firewall on your machine or on hypervisor
 - Set swap space and rules
 - SSH stuff
 - Update/Upgrade stuff (I should handle it for the next Polis release)
