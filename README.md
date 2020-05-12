@@ -1,4 +1,5 @@
 # polis
+Run a Polis masternode with docker-compose.
 ## What it does
 - Isolation of the app regarding your system
 - Easy way to move a complete env
