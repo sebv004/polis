@@ -1,4 +1,4 @@
-# polis
+# Polis Masternode
 Run a Polis masternode with docker-compose.
 ## What it does
 - Isolation of the app regarding your system
