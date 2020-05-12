@@ -1,0 +1,15 @@
+version: '2'
+services:
+    polis:
+        image: testsv:latest
+        volumes:
+            - ./polis:/var/polis
+            - ./sentinel:/var/sentinel
+        ports:
+          - 24126:24126  
+        restart: unless-stopped
+
+
+
+            
+            
