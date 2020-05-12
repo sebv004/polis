@@ -8,3 +8,4 @@
 - Set a firewall on your machine
 - Set swap space and rules
 - SSH stuff
+- Update/Upgrade stuff (I should handle it for the next Polis release)
