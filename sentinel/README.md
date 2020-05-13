@@ -1,1 +1,1 @@
-This directory contains all sentinel VAR.
+This directory contains all SENTINEL masternode VAR.

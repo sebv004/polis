@@ -1,1 +1,1 @@
-This directory contains all your masternode VAR.
+This directory contains all your POLIS masternode VAR.
