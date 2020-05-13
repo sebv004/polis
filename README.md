@@ -1,5 +1,6 @@
 # Polis Masternode
 Run a Polis masternode with docker-compose.
+Clone this in /opt.
 ## What it does
 - Isolation of the app regarding your system
 - Easy way to move a complete env
