@@ -10,4 +10,4 @@ Clone this in /opt.
 - Set a firewall on your machine or on hypervisor
 - Set swap space and rules
 - SSH stuff
-- Update/Upgrade stuff (I should handle it for the next Polis release)
+- Update/Upgrade stuff (used to update 1.6.4 to 1.65 with success)
