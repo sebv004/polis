@@ -10,4 +10,4 @@ Clone this in /opt.
 - Set a firewall on your machine or on hypervisor
 - Set swap space and rules
 - SSH stuff
-- Update/Upgrade stuff (used to update 1.6.4 to 1.65 with success)
+- Update/Upgrade stuff (used to update 1.6.4 to 1.6.5 with success)
