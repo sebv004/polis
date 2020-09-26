@@ -1,18 +1,14 @@
 # escape=\
 FROM ubuntu:18.04
 
-
+ARG COIN_VER='1.6.5'
 ARG CONFIG_FILE='polis.conf'
 ARG CONFIGFOLDER='/var/polis'
 ARG SENTI_CONFIGFOLDER='/var/sentinel'
-ARG COIN_DAEMON='/usr/local/bin/polisd'
-ARG COIN_CLI='/usr/local/bin/polis-cli'
-ARG COIN_REPO='https://github.com/polispay/polis/releases/download/v1.6.3/poliscore-1.6.3-x86_64-linux-gnu.tar.gz'
-ARG COIN_ZIP='poliscore-1.6.3-x86_64-linux-gnu.tar.gz'
 ARG SENTINEL_REPO='https://github.com/polispay/sentinel.git'
 ARG COIN_NAME='Polis'
 ARG COIN_PORT=24126
-ARG COIN_BS='https://github.com/polispay/polis/releases/download/v1.6.1/bootstrap.tar.gz'
+ARG COIN_BS='https://public.oly.tech/bootstrap.tar.gz'
 
 RUN set -eux pipefail \
     && apt-get update \
@@ -43,13 +39,13 @@ RUN set -eux pipefail \
     bsdmainutils \
     libzmq3-dev \
     python-virtualenv virtualenv cron pwgen vim curl \
-    && wget $COIN_REPO -P /var/tmp \
-    && cd /var/tmp && tar xvf $COIN_ZIP \
-    && mv /var/tmp/poliscore-1.6.3 /opt \
-    && rm /var/tmp/$COIN_ZIP \
-    && cp /opt/poliscore-1.6.3/bin/polisd /usr/local/bin \
-    && cp /opt/poliscore-1.6.3/bin/polis-cli /usr/local/bin \
-    && strip $COIN_DAEMON $COIN_CLI \
+    && wget "https://github.com/polispay/polis/releases/download/v${COIN_VER}/poliscore-${COIN_VER}-x86_64-linux-gnu.tar.gz" -P /var/tmp \
+    && cd /var/tmp && tar xvf "poliscore-${COIN_VER}-x86_64-linux-gnu.tar.gz" \
+    && mv /var/tmp/poliscore-$COIN_VER /opt \
+    && rm /var/tmp/poliscore-$COIN_VER-x86_64-linux-gnu.tar.gz \
+    && cp /opt/poliscore-$COIN_VER/bin/polisd /usr/local/bin \
+    && cp /opt/poliscore-$COIN_VER/bin/polis-cli /usr/local/bin \
+    && strip /usr/local/bin/polisd /usr/local/bin/polis-cli \
     && chmod +x /usr/local/bin/polisd \
     && chmod +x /usr/local/bin/polis-cli \
     && git clone $SENTINEL_REPO /opt/sentinel \
@@ -61,7 +57,7 @@ RUN set -eux pipefail \
 
 
 EXPOSE ${COIN_PORT}
-VOLUME ["/opt/poliscore-1.6.3","/opt/sentinel","/var/polis","/var/sentinel"]
+VOLUME ["/opt/poliscore-1.6.4","/opt/sentinel","/var/polis","/var/sentinel"]
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
